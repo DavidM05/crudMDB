@@ -24,4 +24,8 @@ router.get('/edit/:id', tasksController.tasksEdit);
 
 router.get('/tasks/:id', tasksController.tasksId);
 
+router.delete('/delete/:id', tasksController.taskDelete);
+
+
+
 module.exports = router;
