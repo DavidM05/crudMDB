@@ -1,5 +1,6 @@
 const { json } = require('body-parser');
 const { response } = require('express');
+const task = require('../models/task');
 const TaskSchema = require('../models/task');
 
 const tasks = async (req, res) =>{
@@ -18,7 +19,8 @@ const tasksId = async(req, res)=>{
    res.json(data);
 };
  const taskDelete = async(req, res)=>{
-     const id = req.params.id;
-     res.json(data);
+     const { id }  = req.params.id;
+     await Task.remove({_id: id});
+     res.redirect('/');
 };
 module.exports = {tasks, tasksEdit, tasksId, taskDelete};
