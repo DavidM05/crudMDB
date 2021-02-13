@@ -6,13 +6,13 @@ const app = express();
 
 
 // importing routes
-const indexRaoutes = require('./routes/index');
+const indexRoutes = require('./routes/index');
 //connecting db
 mongoose.connect('mongodb://localhost/crud')
     .then(db => console.log('Db connected'))
     .catch(err => console.log(err));
 //setting
-app.set('port', process.envPORT || 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -21,7 +21,7 @@ app.use(morgan ('dev'));
 app.use(express.urlencoded({extended: false}));
 
 //routes
-app.use('/', indexRaoutes);
+app.use('/', indexRoutes);
 //starting server
 app.listen(app.get('port'),() => {
     console.log(`Server on port ${app.getMaxListeners('port')}`);

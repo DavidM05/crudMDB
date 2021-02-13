@@ -10,7 +10,7 @@
               <input
                 class="form-control"
                 type="text"
-                name="Name"
+                name="name"
                 placeholder="Name"
               />
             </div>
@@ -33,7 +33,7 @@
         <thead>
           <tr>
             <th>N°</th>
-            <th>Title</th>
+            <th>Name</th>
             <th>Description</th>
             <th>Operations</th>
           </tr>
@@ -42,7 +42,7 @@
           <% for(var i=0; i < tasks.length; i++) { %>
           <tr>
             <td><%= i + 1%></td>
-            <td><strong><%= tasks[i].title %></strong></td>
+            <td><strong><%= tasks[i].name %></strong></td>
             <td><%= tasks[i].description %></td>
             <td>
               <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">
