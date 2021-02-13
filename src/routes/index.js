@@ -19,15 +19,6 @@ router.get('/', async (req, res) => {
     res.redirect('/');
   });
   
-  router.get('/turn/:id', async (req, res, next) => {
-    let { id } = req.params;
-    const task = await Task.findById(id);
-    task.status = !task.status;
-    await task.save();
-    res.redirect('/');
-  });
-  
-  
   router.get('/edit/:id', async (req, res, next) => {
     const task = await Task.findById(req.params.id);
     console.log(task)
@@ -45,7 +36,7 @@ router.get('/', async (req, res) => {
     await Task.remove({_id: id});
     res.redirect('/');
   });
-//router.get('/edit/:id', tasksController.tasksEdit);
+//router.post('/edit/:id', tasksController.tasksEdit);
 
 //router.get('/tasks/:id', tasksController.tasksId);
 
