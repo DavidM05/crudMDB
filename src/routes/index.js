@@ -3,7 +3,7 @@ const { model } = require('mongoose');
 const router = express.Router();
 
 const Task = require('../models/task');
-//const tasksController = require('../controllers/tasksControllers');
+const tasksController = require('../controllers/tasksControllers');
 
 
 router.get('/', async (req, res) => {
@@ -36,11 +36,14 @@ router.get('/', async (req, res) => {
     await Task.remove({_id: id});
     res.redirect('/');
   });
-//router.post('/edit/:id', tasksController.tasksEdit);
+router.put('/edit/:id', tasksController.tasksEdit);
 
-//router.get('/tasks/:id', tasksController.tasksId);
+router.get('/tasks/:id', tasksController.tasksId);
 
-//router.get('/delete/:id', tasksController.taskDelete);
+router.post('/add1', tasksController.tasksAdd);
+
+router.delete('/delete1/:id', tasksController.tasksDelete);
+
 
 
 
