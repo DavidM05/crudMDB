@@ -36,6 +36,15 @@ router.get('/', async (req, res) => {
     await Task.remove({_id: id});
     res.redirect('/');
   });
+
+  router.get('/turn/:id', async (req, res, next) => {
+    let { id } = req.params;
+    const task = await Task.findById(id);
+    task.status = !task.status;
+    await task.save();
+    res.redirect('/');
+  });
+  
 router.put('/edit/:id', tasksController.tasksEdit);
 
 router.get('/tasks/:id', tasksController.tasksId);

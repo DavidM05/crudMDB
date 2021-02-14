@@ -28,7 +28,6 @@
       </div>
     </div>
     <!--LIST-->
-    <div class="col-md-7">
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
@@ -45,6 +44,9 @@
             <td><strong><%= tasks[i].name %></strong></td>
             <td><%= tasks[i].description %></td>
             <td>
+              <a
+                  class="<%= tasks[i].status ? 'btn btn-success' : 'btn btn-dark'%>"
+                  href="/turn/<%= tasks[i]._id %>">Done</a>
               <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">
                 Delete
               </a>
